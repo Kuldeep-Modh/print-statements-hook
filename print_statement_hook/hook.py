@@ -99,11 +99,8 @@ def check_print_statements():
                 print(
                     f"{COLOR_RED}FAIL{COLOR_RESET} {file_path}:{lineno}: {COLOR_BOLD}print{COLOR_RESET} statement found.")
 
-    # Print final summary if any findings
     if total_findings > 0:
-        print(f"\n{COLOR_RED}{COLOR_BOLD}FAILED{COLOR_RESET}: Found {total_findings} print statements across {files_with_prints} files.")
         sys.exit(1)
-    
     sys.exit(0)
 
 
