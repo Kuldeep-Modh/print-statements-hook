@@ -3,8 +3,11 @@ name = "print-statements-hook"
 version = "0.1.0"
 description = "A pre-commit hook to detect and prevent print statements in Python code"
 readme = "README.md"
-requires-python = ">=3.12"
+requires-python = ">=3.8"
 dependencies = []
+
+[project.scripts]
+check-print-statements = "print_statement_hook.hook:check_print_statements"
 
 [build-system]
 requires = ["setuptools", "wheel"]
