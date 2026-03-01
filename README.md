@@ -13,7 +13,13 @@ Using `print()` for debugging is common, but leaving them in production code can
 
 ## Installation
 
-You can install the package locally for development or testing:
+You can install the package from PyPI:
+
+```bash
+pip install print-statements-hook
+```
+
+Or install it locally for development or testing:
 
 ```bash
 pip install .
@@ -79,24 +85,22 @@ check-print-statements --version
 
 ### Releasing New Versions
 
-Versioning for pre-commit hooks is primarily handled through Git tags. To release a new version:
+Versioning is automated using `bump-my-version` and GitHub Actions. To release a new version:
 
-1. Update the version in `print_statement_hook/hook.py`, `setup.py`, and `pyproject.toml`.
-2. Commit the changes:
+1. Use `bump-my-version` to bump the version (e.g., from `0.1.0` to `0.2.0`):
    ```bash
-   git add .
-   git commit -m "Bump version to v0.2.0"
+   # This will update all files, create a commit, and add a Git tag
+   bump-my-version bump minor  # Use 'patch', 'minor', or 'major'
    ```
-3. Create a Git tag:
+2. Push the commit and the tag to GitHub:
    ```bash
-   git tag -a v0.2.0 -m "Release v0.2.0"
-   ```
-4. Push the tag to GitHub:
-   ```bash
-   git push origin v0.2.0
+   git push origin main
+   git push origin --tags
    ```
 
-Users can then reference this specific version in their `.pre-commit-config.yaml`.
+3. The GitHub Actions release workflow will automatically build the package, publish it to PyPI, and create a GitHub Release.
+
+Users can then reference the new specific version tag in their `.pre-commit-config.yaml` or install the new version via `pip install --upgrade print-statements-hook`.
 
 ## License
 
