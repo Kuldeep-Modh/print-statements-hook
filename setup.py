@@ -5,7 +5,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setup(
     name="print-statements-hook",
-    version="0.1.0",
+    version="0.2.0",
     author="Kuldeep Modh",
     author_email="kuldeepmodh1823@gmail.com",
     description="A pre-commit hook to detect and prevent print statements in Python code",
